@@ -8,7 +8,10 @@ Given /the following movies exist/ do |movies_table|
   end
 end
 
-
+Then /^the director of "(.*)" should be "(.*)"$/ do |e1, e2|
+    movie = Movie.find_by_title(e1)
+    movie.director.should == e2
+end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
